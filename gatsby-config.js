@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: `Fotograf Rafał Woźniak`,
@@ -18,7 +20,19 @@ fotografii modowej, fotografii reklamowej oraz reportażu.
     //   }
     // },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: process.env.DATOCMS_TOKEN,
+        environment: `main`,
+        previewMode: false,
+        disableLiveReload: false,
+        localeFallbacks: {
+          pl: ['pl']
+        }
+      }
+    }
     // {
     //   resolve: `gatsby-plugin-manifest`,
     //   options: {
