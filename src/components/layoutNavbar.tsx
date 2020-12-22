@@ -39,11 +39,9 @@ const LayoutNavbar: React.FC = () => {
                     ({ node }) =>
                       node.locale === 'pl' && (
                         // TODO: all locales
-                        <Nav.Link>
-                          <Link to={node.href} className="nav-link">
-                            {node.name}
-                          </Link>
-                        </Nav.Link>
+                        <Link to="/" key={node.name} className="nav-link">
+                          {node.name}
+                        </Link>
                       )
                   )}
                 </Nav>
