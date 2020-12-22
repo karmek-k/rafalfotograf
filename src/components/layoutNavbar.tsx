@@ -14,6 +14,7 @@ const query = graphql`
         node {
           name
           locale
+          href
         }
       }
     }
@@ -39,7 +40,11 @@ const LayoutNavbar: React.FC = () => {
                     ({ node }) =>
                       node.locale === 'pl' && (
                         // TODO: all locales
-                        <Link to="/" key={node.name} className="nav-link">
+                        <Link
+                          to={'/' + node.href}
+                          key={node.name}
+                          className="nav-link"
+                        >
                           {node.name}
                         </Link>
                       )
