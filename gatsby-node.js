@@ -1,7 +1,25 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+exports.createPages = async ({ actions, graphql }) => {
+  const { data } = await graphql(`
+    {
+      allDatoCmsPhoto {
+        edges {
+          node {
+            category {
+              href
+            }
+          }
+        }
+      }
+    }
+  `);
 
-// You can delete this file if you're not using it
+  data.allDatoCmsPhoto.edges.forEach(({ node }) => {
+    if (node.category.href) {
+      actions.createPage({
+        path: node.category.href,
+        component: require.resolve('./src/pages/index.tsx'),
+        context: { hrefName: node.category.href }
+      });
+    }
+  });
+};
