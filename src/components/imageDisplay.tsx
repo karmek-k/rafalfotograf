@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
+import GalleryImage from './galleryImage';
 
 interface Props {
   hrefName?: string;
@@ -27,11 +28,7 @@ const ImageDisplay: React.FC<Props> = props => {
               lg={props.lg || sizeDefaults.lg}
               key={node.id}
             >
-              <img
-                src={node.photo.url}
-                alt={node.shortText}
-                style={{ maxWidth: '100%', padding: '1em' }}
-              />
+              <GalleryImage imgUrl={node.photo.url} text={node.shortText} />
             </Col>
           )
       )}

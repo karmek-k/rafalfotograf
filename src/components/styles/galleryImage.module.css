@@ -1,0 +1,9 @@
+.gallery-image {
+  max-width: 100%;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.modal-image {
+  max-width: 100%;
+}
