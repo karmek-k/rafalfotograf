@@ -5,7 +5,8 @@ import Layout from '../components/layout';
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
     <Layout>
-      <h1>Page not found</h1>
+      {/* TODO: Make this depend on locale */}
+      <h1>Nie znaleziono strony</h1>
     </Layout>
   );
 };

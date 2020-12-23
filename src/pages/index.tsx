@@ -22,10 +22,13 @@ export const query = graphql`
   }
 `;
 
-const IndexPage: React.FC<PageProps> = ({ data }: any) => {
+const IndexPage: React.FC<PageProps> = ({ data, pageContext }: any) => {
   return (
     <Layout>
-      <ImageDisplay edges={data.allDatoCmsPhoto.edges} />
+      <ImageDisplay
+        edges={data.allDatoCmsPhoto.edges}
+        hrefName={pageContext.hrefName}
+      />
     </Layout>
   );
 };
