@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 interface Props {
-  category?: string;
+  hrefName?: string;
   imgWidthUnit?: number;
   edges: any;
 }
@@ -12,7 +12,7 @@ const ImageDisplay: React.FC<Props> = props => {
     <Row>
       {props.edges.map(
         ({ node }) =>
-          (node.category.name === props.category || !props.category) && (
+          (node.category.href === props.hrefName || !props.hrefName) && (
             <Col sm={props.imgWidthUnit || 3} key={node.id}>
               <img
                 src={node.photo.url}
