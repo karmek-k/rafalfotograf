@@ -29,7 +29,9 @@ const LayoutNavbar: React.FC = () => {
         <Navbar>
           <Container className="justify-content-between">
             <div>
-              <Navbar.Brand>{data.site.siteMetadata.title}</Navbar.Brand>
+              <Link to="/" className="nav-brand nav-link">
+                <Navbar.Brand>{data.site.siteMetadata.title}</Navbar.Brand>
+              </Link>
             </div>
             <div>
               <Navbar.Toggle aria-controls="navbar-links" />
@@ -38,7 +40,8 @@ const LayoutNavbar: React.FC = () => {
                   {/* get all links from cms */}
                   {data.allDatoCmsCategory.edges.map(
                     ({ node }) =>
-                      node.locale === 'pl' && (
+                      node.locale === 'pl' &&
+                      node.href && (
                         // TODO: all locales
                         <Link
                           to={'/' + node.href}
@@ -49,6 +52,7 @@ const LayoutNavbar: React.FC = () => {
                         </Link>
                       )
                   )}
+                  {/* end getting all links from cms */}
                 </Nav>
               </Navbar.Collapse>
             </div>
